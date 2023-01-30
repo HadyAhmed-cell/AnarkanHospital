@@ -1,0 +1,148 @@
+﻿@model IEnumerable<AnarkanHospital.Models.Patient>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center text-success text-decoration-underline">
+    Patients List
+</h1>
+
+<br />
+<a asp-controller="Patients" asp-action="Create" class="btn btn-success mb-3 mt-3">Create New</a>
+
+
+
+<div class="row">
+    <form method="get" asp-controller="Patients" asp-action="Index" class="mb-3 col-3">
+    <label>Page Size</label>
+    <input type="number" name="pageSize" value="@ViewBag.PageSize" class="form-control" />
+    <label class="mt-2">Page No.</label>
+    <input type="number" name="pageNumber" value="@ViewBag.PageNumber" class="mb-3 form-control" />
+
+    <button type="submit" class="mb-3 btn btn-dark">Go</button>
+
+
+  <div class="input-group">
+        <input type="text" name="search" class="form-control" value="@ViewBag.CurrentSearch"/>
+    <button type="submit" class="btn btn-secondry input-group-addon">
+       <i class="fa fa-search"></i>
+    </button>
+  </div>
+
+</form>
+</div>
+
+
+
+
+
+
+
+@if (Model.Count()>0)
+{
+            <table class="table table-striped table-bordered table-hover table-success">
+        <thead>
+            <tr>
+                <th>
+
+                            <div style="width:50%;float:left;text-align:left">
+
+                    @Html.DisplayNameFor(model => model.Name)
+                    </div>
+                         <div style="width:50%;float:right;text-align:right">
+                                                    <a asp-controller="Patients" asp-action="Index" asp-route-sortType="Name" asp-route-sortOrder="asc" asp-route-search="@ViewBag.CurrentSearch" style="text-decoration:none" asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                                <i class="fa fa-arrow-up"></i>
+                                                </a>
+                                                            <a asp-controller="Patients" asp-action="Index" asp-route-sortType="Name" asp-route-sortOrder="desc" asp-route-search="@ViewBag.CurrentSearch"  asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                                    <i class="fa fa-arrow-down"></i>
+                                                    </a>
+                                        </div> 
+
+
+                </th>
+                <th>
+
+                        
+                    @Html.DisplayNameFor(model => model.Age)
+
+                    
+
+
+                </th>
+                <th>
+
+                         <div style="width:50%;float:left;text-align:left">
+                    @Html.DisplayNameFor(model => model.HealthProblem)
+
+                        </div>
+
+
+                         <div style="width:50%;float:right;text-align:right">
+                                                        <a asp-controller="Patients" asp-action="Index" asp-route-sortType="Name" asp-route-sortOrder="asc" asp-route-search="@ViewBag.CurrentSearch" style="text-decoration:none" asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                                    <i class="fa fa-arrow-up"></i>
+                                                    </a>
+                                                                <a asp-controller="Patients" asp-action="Index" asp-route-sortType="Name" asp-route-sortOrder="desc" asp-route-search="@ViewBag.CurrentSearch"  asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                                        <i class="fa fa-arrow-down"></i>
+                                                        </a>
+                                            </div> 
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Critical)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeavingAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>Patients Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HealthProblem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Critical)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeavingAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+
+                    <td>
+                                <a asp-controller="Patients" asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa fa-list"></i></a>
+                                                                                                <a asp-controller="Patients" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary ms-1 me-1"><i class="fa fa-pencil-square"></i></a>
+                                                                                                <a asp-controller="Patients" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger pl me-2"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+                <tr><td colspan="7" style="font-weight:bold ">Total</td><td>Patients Count = @Model.Count()</td></tr>
+        </tfoot>
+    </table>
+}
+
+else
+{
+            <h1 class="alert alert-danger text-center text-danger">Mafesh Data Ya Sa7by !!</h1>
+}

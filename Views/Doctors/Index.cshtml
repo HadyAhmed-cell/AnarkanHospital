@@ -1,0 +1,196 @@
+﻿@model IEnumerable<AnarkanHospital.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h1 class="text-center text-success text-decoration-underline">
+    Doctors List
+</h1>
+
+
+<br />
+<a asp-controller="Doctors" asp-action="Create" class="btn btn-success mb-3 mt-3">Create New</a>
+
+<div class="row">
+    <form method="get" asp-controller="Doctors" asp-action="Index" class="mb-3 col-3">
+    <label>Page Size</label>
+    <input type="number" name="pageSize" value="@ViewBag.PageSize" class="form-control" />
+    <label class="mt-2">Page No.</label>
+    <input type="number" name="pageNumber" value="@ViewBag.PageNumber" class="mb-3 form-control" />
+
+    <button type="submit" class="mb-3 btn btn-dark">Go</button>
+
+
+  <div class="input-group">
+        <input type="text" name="search" class="form-control" value="@ViewBag.CurrentSearch"/>
+    <button type="submit" class="btn btn-secondry input-group-addon">
+       <i class="fa fa-search"></i>
+    </button>
+  </div>
+
+</form>
+</div>
+
+
+@if (Model.Count()>0)
+{
+            <table class="table table-striped table-bordered table-hover table-success">
+        <thead>
+            <tr>
+                <th>
+
+                        <div style="width:50%;float:left;text-align:left">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </div>
+
+                         <div style="width:50%;float:right;text-align:right">
+                                                <a asp-controller="Doctors" asp-action="Index" asp-route-sortType="Name" asp-route-sortOrder="asc" asp-route-search="@ViewBag.CurrentSearch" style="text-decoration:none" asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                            <i class="fa fa-arrow-up"></i>
+                                            </a>
+                                                        <a asp-controller="Doctors" asp-action="Index" asp-route-sortType="Name" asp-route-sortOrder="desc" asp-route-search="@ViewBag.CurrentSearch"  asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                                <i class="fa fa-arrow-down"></i>
+                                                </a>
+                                    </div> 
+                    
+                </th>
+                <th>
+
+                          <div style="width:50%;float:left;text-align:left">
+                        @Html.DisplayNameFor(model => model.Speciality)
+
+                          </div>
+
+                               <div style="width:50%;float:right;text-align:right">
+                                                    <a asp-controller="Doctors" asp-action="Index" asp-route-sortType="Speciality" asp-route-sortOrder="asc" asp-route-search="@ViewBag.CurrentSearch" style="text-decoration:none" asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                                <i class="fa fa-arrow-up"></i>
+                                                </a>
+                                                                <a asp-controller="Doctors" asp-action="Index" asp-route-sortType="Speciality" asp-route-sortOrder="desc" asp-route-search="@ViewBag.CurrentSearch"  asp-route-pageSize="@ViewBag.PageSize" asp-route-pageNumber="@ViewBag.PageNumber">
+                                                    <i class="fa fa-arrow-down"></i>
+                                                    </a>
+                                        </div> 
+
+                    
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>*@
+               @* <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.ImgUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Availability)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.HiringDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BirthDate)
+                </th>*@
+                @*<th>
+                    @Html.DisplayNameFor(model => model.AttendanceTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeavingTime)
+                </th>*@
+               
+                <th>Doctors Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Speciality)
+                    </td>
+                   @* <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>*@
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>*@
+                   
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.ImgUrl)
+                    </td>*@
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Availability)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salary)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.HiringDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BirthDate)
+                    </td>*@
+                   @* <td>
+                        @Html.DisplayFor(modelItem => item.AttendanceTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeavingTime)
+                    </td>*@
+                   
+                                    <td>
+                                                                        <a asp-controller="Doctors" asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa fa-list"></i></a>
+                                                                                <a asp-controller="Doctors" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary ms-1 me-1"><i class="fa fa-pencil-square"></i></a>
+                                                                                <a asp-controller="Doctors" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger pl me-2"><i class="fa fa-trash"></i></a>
+
+                                                            <form method="post" asp-controller="Doctors" asp-action="DeleteCurrent" asp-route-id="@item.Id" class="d-inline">
+                                                            <input type="hidden" asp-for="@item.Id"/>
+                                                            <button type="submit" onclick="return ConfirmDelete()" class="btn btn-secondary">Immediate Delete</button>
+
+                                                            </form>
+                                                            </td>
+                </tr>
+            }
+        </tbody>
+
+        <tfoot>
+                <tr><td colspan="3" style="font-weight:bold ">Total</td><td>@Model.Sum(e=>e.Salary)</td><td>Doctors Count = @Model.Count()</td></tr>
+        </tfoot>
+    </table>
+}
+
+else
+{
+        <h1 class="alert alert-danger text-center text-danger">Mafesh Data Ya Sa7by !!</h1>
+}
+
+
+@section Scripts {
+    <script>
+            function ConfirmDelete(){
+                    let deleteconfirmed = confirm("Are U sure U Want To Delete ?");
+                   if(deleteconfirmed){
+                       alert("Dcotor Deleted !");
+                   }
+                   return deleteconfirmed;
+                }
+
+
+
+    </script>
+}
+
+

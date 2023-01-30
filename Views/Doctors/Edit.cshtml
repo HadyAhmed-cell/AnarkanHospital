@@ -1,0 +1,250 @@
+﻿@model AnarkanHospital.Models.Doctor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center text-success text-decoration-underline">
+    Edit Current Dcotor
+    </h1>
+<hr />
+<div class="container">
+    
+    
+        <form asp-action="Edit" class="well form-horizontal" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreatedAt" />
+            <input type="hidden" asp-for="ImgUrl" />
+            <input type="hidden" asp-for="CvUrl" />
+             <fieldset>
+
+
+            <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Name)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"></span>
+
+  <input asp-for="Name" placeholder="Full Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+            <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Age)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Age" placeholder="Age" class="form-control"  type="number">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Salary)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Salary" placeholder="Salary e.g(5000$)" class="form-control"  type="number">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.PhoneNumber)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="PhoneNumber" placeholder="01234567890" class="form-control"  type="number">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Speciality)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Speciality" placeholder="Speciality" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+
+
+ <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Email)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Email" placeholder="E-Mail Address" class="form-control"  type="email">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.ConfirmEmail)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="ConfirmEmail" placeholder="Confirm E-Mail Address" class="form-control"  type="email">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Password)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Password"  placeholder="Password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.ConfirmPassword)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="ConfirmPassword"  placeholder="Confirm Password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.HiringDateTime)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="HiringDateTime" placeholder="Hire Date" class="form-control"  type="datetime-local">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.BirthDate)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="BirthDate" placeholder="First Name" class="form-control"  type="date">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.AttendanceTime)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="AttendanceTime" placeholder="Attendance Time" class="form-control"  type="time">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.LeavingTime)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="LeavingTime" placeholder="Leaving Time" class="form-control"  type="time">
+    </div>
+  </div>
+</div>
+
+<br />
+
+
+<div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Availability"  /> @Html.DisplayNameFor(model => model.Availability)
+                </label>
+            </div>
+
+           
+
+         <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.ImgUrl)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="ImgUrl" placeholder="Image" class="form-control"  type="file" name="imageFile" id="imageFile" accept=".png,.jpg" onclick="ChangeName()">
+    </div>
+  </div>
+</div>
+
+<br />
+<div class="col-6">
+        <img asp-append-version src="@Model.ImgUrl" id="docImage" class="col-2" style="object-fit:cover"/>
+
+    </div>
+    <br />
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.CvUrl)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="CvUrl" placeholder="Resume" class="form-control"  type="file" name="cvFile" id="cvFile" accept="application/pdf" onclick="AddCV()">
+    </div>
+  </div>
+</div>
+
+
+    <br />
+
+     <div class="col-6">
+       <embed id="docCv" src="@Model.CvUrl" type="application/pdf"/>
+
+    </div>
+
+
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary" >Edit Doctor<span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Doctors" >Back To List</a>
+  </div>
+</div>
+
+
+
+
+        </fieldset>
+        </form>
+    </div>
+
+
+
+
+
+@section Scripts{
+        <script>
+                function ChangeName(){
+                            document.getElementById("empImage").src = window.URL.createObjectURL
+                            (document.getElementById("imageFile").files[0]);
+                }  function ChangeCv(){
+                                document.getElementById("docCv").src = window.URL.createObjectURL
+                                (document.getElementById("imageFile").files[0]);
+                }
+
+        </script>
+}

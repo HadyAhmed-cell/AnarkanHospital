@@ -1,0 +1,239 @@
+﻿@model AnarkanHospital.Models.Doctor
+
+<h1  class="text-center text-success text-decoration-underline">
+    Create New Doctor
+    </h1>
+
+<div class="container">
+
+    <form class="well form-horizontal" asp-action="Create" method="post" asp-controller="Doctors" enctype="multipart/form-data"  >
+
+        <div asp-validation-summary="All"></div>
+
+        <fieldset>
+            <legend class="text-success text-decoration-underline" style="font-weight:bolder">Add New Doctor</legend>
+
+            <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Name)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"></span>
+  
+  <input asp-for="Name" placeholder="Full Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+            <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Age)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Age" placeholder="Age" class="form-control"  type="number">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Salary)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Salary" placeholder="Salary e.g(5000$)" class="form-control"  type="number">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.PhoneNumber)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="PhoneNumber" placeholder="01234567890" class="form-control"  type="number">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Speciality)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Speciality" placeholder="Speciality" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+
+
+ <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Email)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Email" placeholder="E-Mail Address" class="form-control"  type="email">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.ConfirmEmail)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="ConfirmEmail" placeholder="Confirm E-Mail Address" class="form-control"  type="email">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.Password)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="Password"  placeholder="Password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.ConfirmPassword)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="ConfirmPassword"  placeholder="Confirm Password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.HiringDateTime)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="HiringDateTime" placeholder="Hire Date" class="form-control"  type="datetime-local">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.BirthDate)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="BirthDate" placeholder="First Name" class="form-control"  type="date">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.AttendanceTime)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="AttendanceTime" placeholder="Attendance Time" class="form-control"  type="time">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.LeavingTime)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="LeavingTime" placeholder="Leaving Time" class="form-control"  type="time">
+    </div>
+  </div>
+</div>
+
+<br />
+
+
+<div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Availability"  /> @Html.DisplayNameFor(model => model.Availability)
+                </label>
+            </div>
+
+            <br />
+
+         <div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.ImgUrl)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="ImgUrl" placeholder="Image" class="form-control"  type="file" name="imageFile" id="imageFile" accept=".png,.jpg" onclick="AddImage()">
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="form-group">
+  <label class="col-md-4 control-label">@Html.DisplayNameFor(d=>d.CvUrl)</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input asp-for="CvUrl" placeholder="Resume" class="form-control"  type="file" name="cvFile" id="cvFile" accept="application/pdf" onclick="AddCV()">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary" >Add Doctor<span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Doctors" >Back To List</a>
+  </div>
+</div>
+
+
+
+
+        </fieldset>
+
+    </form>
+</div>
+
+
+
+@section Scripts {
+    
+             
+
+         <script>
+            function AddImage(){
+                            document.getElementById("docImage").src = window.URL.createObjectURL
+                            (document.getElementById("imageFile").files[0]);
+
+
+            }
+
+                function AddCV() {
+                document.getElementById("docCV").src = 
+                           window.URL.createObjectURL(
+                              document.getElementById('cvFile').files[0]);
+            }
+
+        </script>
+   
+
+    
+}
